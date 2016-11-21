@@ -43,8 +43,7 @@ install:
       Set-Item WSMan:\localhost\Service\Auth\Basic $true
       Set-Item WSMan:\localhost\Service\AllowUnencrypted $true
       Invoke-Expression $($env:WITH_COMPILER + " pip install cffi coveralls")
-      pip install .
-      pip install -r requirements-test.txt
+      python setup.py pytest
 
 build: off  # Do not run MSBuild, build stuff at install step
 
